@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>完全雲端醫院｜AI 臨床診斷邏輯訓練 Demo</title>
+    <meta
+      name="description"
+      content="以 SLEK 完全雲端醫院為概念的醫學生 OSCE 臨床診斷邏輯訓練互動 demo。"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true">
+          <span>CH</span>
+        </div>
+        <div>
+          <p class="eyebrow">SLEK concept demo</p>
+          <h1>完全雲端醫院：AI 臨床診斷邏輯訓練工作站</h1>
+        </div>
+      </div>
+      <a class="official-link" href="https://ssp.moe.gov.tw/cases/1046" target="_blank" rel="noreferrer">
+        官方案例來源
+      </a>
+    </header>
+
+    <section class="source-ribbon" aria-label="比賽來源">
+      <strong>來源</strong>
+      <span>大專校院創新創業實戰模擬學習平臺</span>
+      <span>教育部</span>
+      <span>113 年第一梯次成功案例</span>
+      <span>臺北醫學大學 · SLEK · 生醫材化領域</span>
+    </section>
+
+    <main class="clinical-workspace">
+      <aside class="patient-panel" aria-label="虛擬病人案例">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Virtual patient</p>
+            <h2>虛擬病人案例</h2>
+          </div>
+          <button class="ghost-button" id="resetCase" type="button">重置</button>
+        </div>
+
+        <label class="field-label" for="caseSelect">訓練站別</label>
+        <select id="caseSelect" class="case-select"></select>
+
+        <div class="patient-visual" id="patientVisual" aria-hidden="true">
+          <div class="monitor-grid">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="pulse-line"></div>
+        </div>
+
+        <section class="patient-summary" id="patientSummary"></section>
+
+        <div class="metric-grid" aria-label="訓練指標">
+          <div>
+            <span class="metric-label">蒐證完整</span>
+            <strong id="evidenceMetric">0%</strong>
+          </div>
+          <div>
+            <span class="metric-label">安全性</span>
+            <strong id="safetyMetric">100</strong>
+          </div>
+          <div>
+            <span class="metric-label">使用時間</span>
+            <strong id="timeMetric">0 分</strong>
+          </div>
+        </div>
+
+        <section class="chart-log">
+          <div class="panel-heading slim">
+            <div>
+              <p class="section-kicker">Chart</p>
+              <h2>已蒐集資料</h2>
+            </div>
+          </div>
+          <ol id="chartLog" class="chart-list"></ol>
+        </section>
+      </aside>
+
+      <section class="training-panel" aria-label="臨床推理操作區">
+        <section class="work-surface action-surface">
+          <div class="surface-heading">
+            <div>
+              <p class="section-kicker">OSCE station</p>
+              <h2>問診與檢查選擇</h2>
+            </div>
+            <span class="surface-note" id="targetTime"></span>
+          </div>
+          <div class="action-columns" id="actionGroups"></div>
+        </section>
+
+        <section class="work-surface coach-surface">
+          <div class="surface-heading">
+            <div>
+              <p class="section-kicker">Reasoning coach</p>
+              <h2>AI 診斷推理提示</h2>
+            </div>
+            <button id="coachButton" class="primary-button" type="button">更新提示</button>
+          </div>
+          <div class="coach-output" id="coachOutput" aria-live="polite"></div>
+        </section>
+
+        <div class="diagnosis-layout">
+          <section class="work-surface">
+            <div class="surface-heading">
+              <div>
+                <p class="section-kicker">Differential</p>
+                <h2>鑑別診斷</h2>
+              </div>
+            </div>
+            <div id="differentialList" class="differential-list"></div>
+          </section>
+
+          <section class="work-surface">
+            <div class="surface-heading">
+              <div>
+                <p class="section-kicker">Commit</p>
+                <h2>主要診斷</h2>
+              </div>
+            </div>
+            <div id="primaryDiagnosis" class="primary-options"></div>
+            <button id="submitCase" class="submit-button" type="button">提交給教師評分</button>
+          </section>
+        </div>
+
+        <section class="work-surface feedback-surface">
+          <div class="surface-heading">
+            <div>
+              <p class="section-kicker">Faculty</p>
+              <h2>教師回饋與成績紀錄</h2>
+            </div>
+            <button id="clearRecords" class="ghost-button" type="button">清除紀錄</button>
+          </div>
+          <div id="feedbackOutput" class="feedback-output"></div>
+          <div class="record-table-wrap">
+            <table class="record-table">
+              <thead>
+                <tr>
+                  <th>時間</th>
+                  <th>案例</th>
+                  <th>分數</th>
+                  <th>等第</th>
+                  <th>主要診斷</th>
+                </tr>
+              </thead>
+              <tbody id="recordRows"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>教育展示用離線 demo；所有案例皆為模擬資料，不作為真實醫療診斷、治療或分流依據。</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
