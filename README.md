@@ -1,5 +1,21 @@
 # 完全雲端醫院：AI 臨床診斷邏輯訓練平台 Demo
 
+## 快速看懂
+
+![startup-cloud-hospital-training 功能截圖](docs/preview.png)
+
+- 線上 Demo：https://atlasforcn.github.io/startup-cloud-hospital-training/
+- 這個原型在做什麼：把完全雲端醫院做成 AI 臨床診斷邏輯訓練平台。
+- 特色定位：特色是讓醫學生在虛擬病人案例中練問診、檢查、鑑別診斷與教師回饋。
+- 操作流程：選擇虛擬病人案例 → 提出問診與檢查選項並查看線索 → 提交診斷後取得 AI/教師式回饋與成績
+
+<details>
+<summary>展開完整功能流程截圖</summary>
+
+![startup-cloud-hospital-training 完整功能流程截圖](docs/flow.png)
+
+</details>
+
 這個 repo 是以「完全雲端醫院：結合 AI 的醫學生線上臨床診斷邏輯訓練平台」為核心概念製作的前端互動 demo。原作品來自教育部「大專校院創新創業實戰模擬學習平臺」113 年第一梯次成功案例，臺北醫學大學團隊/作品「完全雲端醫院：結合 AI 的醫學生線上臨床診斷邏輯訓練平台」，公司/團隊為 SLEK，所屬領域為生醫材化領域。
 
 官方來源：https://ssp.moe.gov.tw/cases/1046
